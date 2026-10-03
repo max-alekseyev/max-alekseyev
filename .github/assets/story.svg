@@ -1,0 +1,144 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 820 295" width="100%" fill="none" role="img" aria-labelledby="t d">
+  <title id="t">Путь 2003–2027</title>
+  <desc id="d">Линия пути: учёба, работа инженером ПТО, спад в конце 2023, видеомонтаж 2024–2026, спад в конце 2026 и открытое будущее с тремя возможными направлениями.</desc>
+  <style>
+    text { font-family: -apple-system, BlinkMacSystemFont, "Inter", "Segoe UI", Roboto, Helvetica, Arial, sans-serif; }
+    .h { fill: #71717a; font-size: 13px; font-weight: 600; }
+    .hb { fill: #38bdf8; font-size: 13px; font-weight: 700; }
+    .t { fill: #e4e4e7; font-size: 14px; font-weight: 600; }
+    .tb { fill: #38bdf8; font-size: 14px; font-weight: 700; }
+    .axis { fill: #52525b; font-size: 11px; }
+
+    /* Линия траектории */
+    .draw { stroke-dasharray: 1; stroke-dashoffset: 1; animation: draw 7s linear forwards; }
+    @keyframes draw { to { stroke-dashoffset: 0; } }
+    .red { stroke-dasharray: 1; stroke-dashoffset: 1; animation: draw linear both; }
+    .red1 { animation-delay: 2.86s; animation-duration: .77s; }
+    .red2 { animation-delay: 5.64s; animation-duration: .78s; }
+
+    .pop { opacity: 0; animation: show .4s ease-out forwards; }
+    @keyframes show { to { opacity: 1; } }
+
+    /* Выверенный разрыв шкалы // (центрирован по кривой на x=135, y=131) */
+    .break-box { opacity: 0; animation: show .15s ease-out forwards; animation-delay: .42s; }
+    .slash { stroke-dasharray: 16; stroke-dashoffset: 16; animation: slashDraw .18s ease-out forwards; }
+    @keyframes slashDraw { to { stroke-dashoffset: 0; } }
+    .slash1 { animation-delay: .46s; }
+    .slash2 { animation-delay: .54s; }
+
+    .future { stroke-dasharray: 4 5; animation: flow 1.6s linear infinite; }
+    @keyframes flow { to { stroke-dashoffset: -18; } }
+
+    @media (prefers-reduced-motion: reduce) {
+      .draw, .red { animation: none; stroke-dashoffset: 0; }
+      .pop, .break-box { animation: none; opacity: 1; }
+      .slash { animation: none; stroke-dashoffset: 0; }
+      .future { animation: none; }
+      .ball, .halo { display: none; }
+    }
+  </style>
+
+  <rect width="820" height="295" rx="6" fill="#09090b" stroke="#27272a"/>
+
+  <!-- Ось Y -->
+  <line x1="24" y1="62" x2="24" y2="200" stroke="#27272a"/>
+  <text class="axis" x="32" y="70">выше</text>
+  <text class="axis" x="32" y="198">ниже</text>
+
+  <!-- Годы вверху -->
+  <g class="h" text-anchor="middle">
+    <text x="70" y="34">2003</text>
+    <text x="200" y="34">2019</text>
+    <text x="330" y="34">2023</text>
+    <text x="470" y="34">2024</text>
+    <text x="590" y="34">2026</text>
+  </g>
+  <text class="hb" x="750" y="34" text-anchor="middle">2027</text>
+
+  <!-- Вертикальные направляющие сетки -->
+  <g stroke="#18181b">
+    <line x1="70" y1="44" x2="70" y2="236"/>
+    <line x1="200" y1="44" x2="200" y2="236"/>
+    <line x1="330" y1="44" x2="330" y2="236"/>
+    <line x1="470" y1="44" x2="470" y2="236"/>
+    <line x1="590" y1="44" x2="590" y2="236"/>
+    <line x1="750" y1="44" x2="750" y2="236"/>
+  </g>
+
+  <!-- Траектория пути (одна непрерывная кривая) -->
+  <path id="trajectory" class="draw" pathLength="1" stroke="#e4e4e7" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"
+    d="M70 140 C130 140 150 120 200 120 C250 120 290 80 330 80 L415 80 C430 80 435 170 445 170 C455 170 460 150 470 150 C520 150 550 80 590 80 L665 80 C685 80 690 170 700 170 C725 170 730 120 750 120"/>
+
+  <!-- Красные спады -->
+  <path class="red red1" pathLength="1" stroke="#ef4444" stroke-width="2.5" stroke-linecap="round" d="M415 80 C430 80 435 170 445 170"/>
+  <path class="red red2" pathLength="1" stroke="#ef4444" stroke-width="2.5" stroke-linecap="round" d="M665 80 C685 80 690 170 700 170"/>
+
+  <!-- Выверенный разрыв шкалы // (аккуратный зазор 12px, симметричные штрихи) -->
+  <rect class="break-box" x="129" y="123" width="12" height="16" rx="2" fill="#09090b"/>
+  <line class="slash slash1" x1="131" y1="137" x2="135" y2="125" stroke="#71717a" stroke-width="1.5" stroke-linecap="round"/>
+  <line class="slash slash2" x1="135" y1="137" x2="139" y2="125" stroke="#71717a" stroke-width="1.5" stroke-linecap="round"/>
+
+  <!-- Будущее: три направления -->
+  <g class="pop" style="animation-delay:7s">
+    <path class="future" stroke="#38bdf8" stroke-width="1.8" stroke-linecap="round" d="M750 120 C768 120 776 82 800 82"/>
+    <path class="future" stroke="#38bdf8" stroke-width="1.8" stroke-linecap="round" d="M750 120 L800 120"/>
+    <path class="future" stroke="#38bdf8" stroke-width="1.8" stroke-linecap="round" d="M750 120 C768 120 776 158 800 158"/>
+    <circle cx="800" cy="82" r="2.5" fill="#38bdf8"/><circle cx="800" cy="120" r="2.5" fill="#38bdf8"/><circle cx="800" cy="158" r="2.5" fill="#38bdf8"/>
+  </g>
+
+  <!-- Станции -->
+  <circle class="pop" style="animation-delay:0s"    cx="70"  cy="140" r="3.5" fill="#71717a"/>
+  <circle class="pop" style="animation-delay:1.05s" cx="200" cy="120" r="3.5" fill="#71717a"/>
+  <circle class="pop" style="animation-delay:2.1s"  cx="330" cy="80"  r="3.5" fill="#e4e4e7"/>
+  <circle class="pop" style="animation-delay:3.6s"  cx="445" cy="170" r="4"   fill="#ef4444"/>
+  <circle class="pop" style="animation-delay:3.9s"  cx="470" cy="150" r="3.5" fill="#e4e4e7"/>
+  <circle class="pop" style="animation-delay:5s"    cx="590" cy="80"  r="3.5" fill="#e4e4e7"/>
+  <circle class="pop" style="animation-delay:6.4s"  cx="700" cy="170" r="4"   fill="#ef4444"/>
+  <circle class="pop" style="animation-delay:7s"    cx="750" cy="120" r="4"   fill="#38bdf8"/>
+
+  <!-- Шарик едет по кривой -->
+  <circle class="ball" r="5" fill="#38bdf8">
+    <animateMotion dur="7s" begin="0s" fill="freeze" calcMode="linear" rotate="0">
+      <mpath href="#trajectory"/>
+    </animateMotion>
+  </circle>
+  <circle class="halo" cx="750" cy="120" r="4" fill="#38bdf8" opacity="0">
+    <animate attributeName="r" values="5;11;5" dur="2s" begin="7s" repeatCount="indefinite"/>
+    <animate attributeName="opacity" values="0.5;0;0.5" dur="2s" begin="7s" repeatCount="indefinite"/>
+  </circle>
+
+  <!-- ==================== НИЖНЯЯ ВЕРСТКА ==================== -->
+  <!-- Разделитель -->
+  <line x1="40" y1="236" x2="780" y2="236" stroke="#27272a" stroke-width="1"/>
+
+  <!-- Засечки узлов на разделителе -->
+  <line x1="70" y1="236" x2="70" y2="243" stroke="#3f3f46" stroke-width="1.2"/>
+  <line x1="200" y1="236" x2="200" y2="243" stroke="#3f3f46" stroke-width="1.2"/>
+  <line x1="330" y1="236" x2="330" y2="243" stroke="#3f3f46" stroke-width="1.2"/>
+  <line x1="750" y1="236" x2="750" y2="243" stroke="#38bdf8" stroke-width="1.2"/>
+
+  <!-- Скоба-диапазон для Видеомонтажа (соединяет направляющие 470 и 590) -->
+  <path d="M 470 236 L 470 244 L 590 244 L 590 236" fill="none" stroke="#3f3f46" stroke-width="1.2"/>
+  <line x1="530" y1="244" x2="530" y2="249" stroke="#3f3f46" stroke-width="1.2"/>
+
+  <!-- Подписи этапов (выровнены по y=266) -->
+  <g transform="translate(70, 266)" text-anchor="middle">
+    <text class="t" x="0" y="0">Рождение</text>
+  </g>
+
+  <g transform="translate(200, 266)" text-anchor="middle">
+    <text class="t" x="0" y="0">Учёба</text>
+  </g>
+
+  <g transform="translate(330, 266)" text-anchor="middle">
+    <text class="t" x="0" y="0">Инженер ПТО</text>
+  </g>
+
+  <g transform="translate(530, 266)" text-anchor="middle">
+    <text class="t" x="0" y="0">Видеомонтаж</text>
+  </g>
+
+  <g transform="translate(750, 266)" text-anchor="middle">
+    <text class="tb" x="0" y="0">Что дальше?</text>
+  </g>
+</svg>
